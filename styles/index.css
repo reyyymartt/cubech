@@ -73,7 +73,7 @@ body {
   padding: 10px;
   height: 400px;
 }
-html>h1,h2,h3,h4,h5,p{
+body > h1,h2,h3,h4,h5,p{
   font-family: Arial Sans-Serif;
 }
 #headPage > p,h1{
@@ -82,7 +82,10 @@ html>h1,h2,h3,h4,h5,p{
   text-align: center;
 }
 #headPage > p{
-  color: lightblue;
+  color: beige;
+  padding: 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(20px);
 }
 .card {
   width: 190px;
@@ -143,7 +146,9 @@ html>h1,h2,h3,h4,h5,p{
   background-color: #212121;
   display: flex;
   flex-direction: row;
-  padding: 40px;
+  padding: 45px;
+  max-width: 100%;
+  overflow: scroll;
 }
 #devs .card{
   margin: 20px;
@@ -160,11 +165,11 @@ html>h1,h2,h3,h4,h5,p{
 #devs .card-inner>h3{
   text-align: center;
   margin: 0px;
-  color: beige;
+  color: lightblue;
 }
 #devs .card-inner>p{
   text-align: center;
-  color: gray;
+  color: white;
   background: transparent;
   margin: 5px;
   padding: 5px;
