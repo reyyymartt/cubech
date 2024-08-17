@@ -10,7 +10,7 @@ const devs=[
   }
 ]
 
-const texts = ["CubeTech","Innovative Designs","Creative devs","Unique styles"]
+const texts = ["CubeTech","Innovative Designs","Creative devs","Unique styles","-£(_-#(£:#("]
 
 var rand = function(max) {
   return Math.floor(Math.random() * max);
