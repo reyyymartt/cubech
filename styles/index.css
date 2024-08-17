@@ -65,7 +65,7 @@ body {
     clear: both;
 }
 #headPage{
-  background-image: url('/assets/bg.jpg');
+  background-image: url('/assets/bg.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -83,10 +83,9 @@ body > h1,h2,h3,h4,h5,p{
 }
 #headPage .container>p{
   color: gray;
-  padding: 15px;
 }
 .container{
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0);
   padding: 10px;
   max-width: 300px;
   overflow: hidden;
