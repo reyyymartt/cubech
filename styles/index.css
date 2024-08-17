@@ -174,9 +174,12 @@ body > h1,h2,h3,h4,h5,p{
   margin: 5px;
   padding: 5px;
 }
+#tit{
+  color: white;
+}
 #tit::after{
   content: "|";
-  color: black;
+  color: lime;
 }
 @media only screen and (max-width: 600px) {
   #devs{
