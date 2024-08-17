@@ -65,7 +65,7 @@ body {
     clear: both;
 }
 #headPage{
-  background-image: url('/assets/globe.jpg');
+  background-image: url('assets/globe.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
