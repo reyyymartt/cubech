@@ -176,6 +176,7 @@ body > h1,h2,h3,h4,h5,p{
 }
 #tit::after{
   content: "|";
+  color: black;
 }
 @media only screen and (max-width: 600px) {
   #devs{
