@@ -10,20 +10,13 @@ const devs=[
   }
 ]
 
-const bgs=["bg1.gif","bg2.gif","bg3.gif"]
 const texts = ["CubeTech","Innovative Designs","Creative devs","Unique styles"]
-
-function loadDevs(){
-  const devs = document.getElementById("devs")
-}
 
 var rand = function(max) {
   return Math.floor(Math.random() * max);
 };
 
 window.onload = function (){
-
-  const bg = document.getElementById("headPage")
   const title = document.getElementById("tit")
   setInterval(function() {
     title.innerText = ""
