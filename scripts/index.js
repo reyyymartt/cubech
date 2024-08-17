@@ -16,6 +16,7 @@ var rand = function(max) {
   return Math.floor(Math.random() * max);
 };
 
+
 window.onload = function (){
   const title = document.getElementById("tit")
   setInterval(function() {
