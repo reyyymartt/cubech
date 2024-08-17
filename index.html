@@ -11,16 +11,6 @@
     <script type="module" charset="utf-8">
       import config from './modules/module.js'
       console.log(config)
-      
-import { getDeployStore } from "/netlify/blobs";
-
-export const onPostBuild = async () => {
-  const construction = getDeployStore("construction");
-
-  await construction.setJSON("nails", { type: "common", finish: "bright" });
-
-  console.log("Nail blob set in JSON for this deploy");
-};
 
     </script>
 </head>
