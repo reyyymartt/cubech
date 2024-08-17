@@ -6,7 +6,7 @@ body {
 }
 
 .topbar {
-    background-color: #333;
+    background-color: #212121;
     overflow: hidden;
     padding: 10px 20px;
     position: sticky;
@@ -65,7 +65,7 @@ body {
     clear: both;
 }
 #headPage{
-  background-image: url('/assets/bg2.gif');
+  background-image: url('/assets/globe.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -81,11 +81,9 @@ body > h1,h2,h3,h4,h5,p{
   margin: 0px;
   text-align: center;
 }
-#headPage > p{
-  color: beige;
-  padding: 10px;
-  border-radius: 10px;
-  backdrop-filter: blur(20px);
+#headPage>h1{
+  font-family: 'Courier New', Courier, monospace;
+  
 }
 .card {
   width: 190px;
@@ -176,10 +174,17 @@ body > h1,h2,h3,h4,h5,p{
 }
 #tit{
   color: white;
+  
 }
 #tit::after{
   content: "|";
   color: lime;
+  animation: fade 1s ease-in infinite alternate-reverse;
+}
+@keyframes fade{
+  to {
+    opacity: 0;
+  }
 }
 @media only screen and (max-width: 600px) {
   #devs{

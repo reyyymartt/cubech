@@ -26,10 +26,6 @@ window.onload = function (){
   const bg = document.getElementById("headPage")
   const title = document.getElementById("tit")
   setInterval(function() {
-    bg.style.backgroundImage = `url(/assets/${bgs[rand(bgs.length)]})`
-  }, 10000);
-  
-  setInterval(function() {
     title.innerText = ""
     var i = 0
     txt = texts[rand(texts.length)]
