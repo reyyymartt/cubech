@@ -11,6 +11,7 @@ const devs=[
 ]
 
 const bgs=["bg1.gif","bg2.gif","bg3.gif"]
+const texts = ["CubeTech","Innovative Designs","Creative devs"]
 
 function loadDevs(){
   const devs = document.getElementById("devs")
@@ -21,8 +22,26 @@ var rand = function(max) {
 };
 
 window.onload = function (){
+
   const bg = document.getElementById("headPage")
+  const title = document.getElementById("tit")
   setInterval(function() {
     bg.style.backgroundImage = `url(/assets/${bgs[rand(bgs.length)]})`
+  }, 10000);
+  
+  setInterval(function() {
+    var i = 0
+    txt = texts[rand(texts.length)]
+    var speed = 50
+    function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+    typeWriter()
+  }
+}
+    
+    
   }, 10000);
 }
