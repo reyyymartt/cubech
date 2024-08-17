@@ -30,7 +30,7 @@ window.onload = function (){
   }, 10000);
   
   setInterval(function() {
-    title.innerText = "---"
+    title.innerText = ""
     var i = 0
     txt = texts[rand(texts.length)]
     var speed = 50
