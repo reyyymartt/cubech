@@ -110,8 +110,11 @@ body > h1,h2,h3,h4,h5,p{
 }
 
 .card:hover {
-  transform: scale(1.04) rotate(1deg);
+  transform: scale(1.09) rotate(1deg);
+  border: 2px solid white;
+  border-radius: 10px
 }
+
 
 .circle {
   width: 100px;
