@@ -11,7 +11,7 @@ const devs=[
 ]
 
 const bgs=["bg1.gif","bg2.gif","bg3.gif"]
-const texts = ["CubeTech","Innovative Designs","Creative devs"]
+const texts = ["CubeTech","Innovative Designs","Creative devs","Unique styles"]
 
 function loadDevs(){
   const devs = document.getElementById("devs")
@@ -30,18 +30,17 @@ window.onload = function (){
   }, 10000);
   
   setInterval(function() {
+    title.innerText = ""
     var i = 0
     txt = texts[rand(texts.length)]
     var speed = 50
     function typeWriter() {
-  if (i < txt.length) {
-    document.getElementById("demo").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  }
-  typeWriter()
-}
-    
-    
-  }, 10000);
+       if (i < txt.length) {
+        title.innerHTML += txt.charAt(i);
+        i++;
+      setTimeout(typeWriter, speed);
+     }
+    }
+    typeWriter()
+  }, 5000);
 }
