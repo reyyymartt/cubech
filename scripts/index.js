@@ -10,7 +10,7 @@ const devs=[
   }
 ]
 
-const texts = ["CubeTech","Innovative Designs","Creative devs","Unique styles","-£(_-#(£:#("]
+const texts = ["CubeTech","Innovative Designs","Creative devs","Unique styles","lalalala","bobo si jed"]
 
 var rand = function(max) {
   return Math.floor(Math.random() * max);
@@ -18,7 +18,7 @@ var rand = function(max) {
 
 
 window.onload = function (){
-  const title = document.getElementById("tit")
+  const title = document.getElementById("titc")
   setInterval(function() {
     title.innerText = ""
     var i = 0

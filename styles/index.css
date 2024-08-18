@@ -65,7 +65,7 @@ body {
     clear: both;
 }
 #headPage{
-  background-image: url('/assets/bg.jpeg');
+  background-image: url('/assets/bg.gif');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -184,7 +184,7 @@ body > h1,h2,h3,h4,h5,p{
 }
 #tit{
   color: white;
-  
+  font-family: monospace;
 }
 #tit::after{
   content: "|";
