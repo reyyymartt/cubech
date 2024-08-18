@@ -6,7 +6,7 @@ body {
 }
 
 .topbar {
-    background-color: rgba(21,21,21,0.8);
+    background: rgba(21,21,21,0.8);
     backdrop-filter: blur(10px);
     overflow: hidden;
     margin: 0px;
@@ -74,7 +74,7 @@ body {
   position: relative;
   margin: 0px;
   padding: 10px;
-  height: 400px;
+  height: 450px;
 }
 body > h1,h2,h3,h4,h5,p{
   font-family: 'Arial', Sans-Serif;
@@ -85,7 +85,7 @@ body > h1,h2,h3,h4,h5,p{
   margin: 5px;
 }
 #headPage .container>p{
-  color: gray;
+  color: darkgray;
 }
 .container{
   background-color: rgba(0,0,0,0);
