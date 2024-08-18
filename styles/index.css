@@ -6,10 +6,11 @@ body {
 }
 
 .topbar {
-    background-color: rgba(21,21,21,0.7);
+    background-color: rgba(21,21,21,0.8);
     backdrop-filter: blur(10px);
     overflow: hidden;
-    padding: 10px 20px;
+    margin: 0px;
+    padding: 5px;
     border-radius: 10px;
 }
 
@@ -20,19 +21,19 @@ body {
     color: #fff;
 }
 .topbar .logo img{
-  margin: 0px;
-  width: 50px;
-  height: 50px;
+  margin: 10px;
+  width: 45px;
+  height: 45px;
 }
 
 .topbar nav {
     float: right;
     overflow: hidden;
+    margin: 10px;
 }
 @media only screen and (max-width: 600px) {
   .topbar nav{
     display: flex;
-    padding: 5px;
     flex-direction: column;
     height: 45px;
     overflow: scroll;
