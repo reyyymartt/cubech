@@ -84,7 +84,10 @@ body > h1,h2,h3,h4,h5,p{
   margin: 5px;
 }
 #headPage .container>p{
-  color: darkgray;
+  color: lightblue;
+  background-color: rgba(21,21,21,0.8);
+  padding: 5px;
+  border-radius: 5px;
 }
 .container{
   background-color: rgba(0,0,0,0);
