@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>test</title>
+  <title>Guess the word</title>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
 <input type="text" id="answer">
 <div id="container">
   <input type="button" id="submit" value="Submit" />
-  <input type="button" id="reload" value="Reload"  onclick="reset()">
+  <input type="button" id="reload" value="Change Word"  onclick="reset()">
 </div>
 </body>
 <style type="text/css" media="all">
@@ -35,7 +35,7 @@
   #def{
     color: lightblue;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: monospace;
     padding: 10px;
   }
   #scoreboard{
@@ -67,15 +67,20 @@
     background-color: white;
     margin: 5px;
     padding: 10px;
-    border-radius: 0px;
+    border-radius: 5px;
     transition: all .5s ease;
+  }
+  #container > input[type=button]:active{
+    transform: scale(.5);
   }
 </style>
 <script type="text/javascript" charset="utf-8">
 
 var score = 0
 var health = 5
-const genWord = "https://random-word-api.herokuapp.com/word"
+const hiddenLetter = "_"
+const ran = "https://random-word-api.herokuapp.com/word"
+const genWord = "https://random-word-api.vercel.app/api?words=1"
 
 
 var rand = function(max) {
@@ -83,13 +88,13 @@ var rand = function(max) {
 };
 
 window.addEventListener("DOMContentLoaded",function(){
-  updateScore()
-  displayWord(genWord)
   if (localStorage.getItem("hs")==null){
     localStorage.setItem("hs",0)
   } else {
     console.log("hs found")
   }
+  updateScore()
+  displayWord(genWord)
 })
 
 function updateScore(){
@@ -125,7 +130,7 @@ function updateScore(){
                   var text = ""
                   for (x in data[0]){
                     if (x!=ran1&&x!=ran2&&x!=ran3){
-                      text+=`_`
+                      text+=hiddenLetter
                     } else {
                       text+=`${data[0][x]}`
                     }
@@ -134,8 +139,9 @@ function updateScore(){
                   displayDef(`https://api.dictionaryapi.dev/api/v2/entries/en/${data[0]}`)
                   console.log(data[0])
                submit.onclick=()=>{
-                 
-                 if (answer.value!=data[0]){
+                 const tr = answer.value.trim()
+                 const trimed = tr.toLowerCase()
+                 if (trimed!=data[0]){
                    health--
                    if (health==0){
                      word.innerText=data[0]
@@ -148,6 +154,7 @@ function updateScore(){
                      word.style.scale=1
                    },500)
                  } else {
+                   word.innerText=data[0]
                    word.style.color="lime"
                    word.style.scale=1.5
                    score++
@@ -170,7 +177,7 @@ function updateScore(){
         });
       }
       
-      async function getDefinition(word) {
+    async function getDefinition(word) {
   let response = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`, {
     headers: {
       "accept": "application/json"
@@ -184,9 +191,16 @@ function updateScore(){
           return fetch(url)
               .then((response) => { 
                 return response.json().then((data) => {
+                  def.innerHTML=""
                  if ("message" in data){
                    def.innerText="couldn't find definition please reload or answer without definition/s"
-                 } else 
+                 } else {
+                   const loc = data[0].meanings[0].definitions
+                   for (item in loc){
+                     def.innerHTML+=`def-${item}:<i> ${loc[item].definition}</i> <br><br>`
+                   }
+                 }
+                
                 
                 return data[0];
             }).catch((err) => {
