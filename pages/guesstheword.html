@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>test</title>
+</head>
+
+<body>
+<p id="scoreboard">SCORE: 0<br>HIGHEST SCORE: 0<br>HEALTH: 5</p>
+<h1 id="word">random</h1>
+<p id="def">Definition</p>
+<input type="text" id="answer">
+<div id="container">
+  <input type="button" id="submit" value="Submit" />
+  <input type="button" id="reload" value="Reload"  onclick="reset()">
+</div>
+</body>
+<style type="text/css" media="all">
+  body{
+    background-color: #212121;
+    margin: 0px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+  #word{
+    color: white;
+    font-family: monospace;
+    text-align: center;
+    letter-spacing: 3px;
+    transition: all .5s ease;
+  }
+  #def{
+    color: lightblue;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+  }
+  #scoreboard{
+    color: white;
+    background-color: gray;
+    margin: 0px;
+    padding: 5px;
+    font-family: monospace;
+  }
+  #answer{
+    margin: auto;
+    background-color: transparent;
+    outline: 0;
+    border: 0px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-bottom: 2px solid white;
+    align-self: center;
+    text-align: center;
+    padding: 5px;
+  }
+  #container{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin: 10px;
+  }
+  #container > input[type=button]{
+    background-color: white;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 0px;
+    transition: all .5s ease;
+  }
+</style>
+<script type="text/javascript" charset="utf-8">
+
+var score = 0
+var health = 5
+const genWord = "https://random-word-api.herokuapp.com/word"
+
+
+var rand = function(max) {
+  return Math.floor(Math.random() * max);
+};
+
+window.addEventListener("DOMContentLoaded",function(){
+  updateScore()
+  displayWord(genWord)
+  if (localStorage.getItem("hs")==null){
+    localStorage.setItem("hs",0)
+  } else {
+    console.log("hs found")
+  }
+})
+
+function updateScore(){
+  const sb = document.getElementById("scoreboard")
+  if (health!=0){
+    sb.innerHTML = `SCORE: ${score}<br>HIGHEST SCORE: ${localStorage.getItem("hs")}<br>HEALTH: ${health}`
+  } else {
+    if (score>parseInt(localStorage.getItem("hs"))){
+      localStorage.setItem("hs",score)
+      sb.innerHTML = `SCORE: ${score}<br>HIGHEST SCORE: ${localStorage.getItem("hs")}<br>HEALTH: ${health}`
+    }
+    score=0
+    health=5
+    updateScore()
+    
+    displayWord(genWord)
+  }
+  
+}
+
+  function displayWord(url) {
+    const word = document.getElementById("word")
+    const submit = document.getElementById("submit")
+    const answer = document.getElementById("answer")
+    const sb=document.getElementById("scoreboard")
+          return fetch(url)
+              .then((response) => { 
+                return response.json().then((data) => {
+                  word.innerHTML=""
+                  const ran1 = rand(data[0].length)
+                  const ran2 = rand(data[0].length)
+                  const ran3 = rand(data[0].length)
+                  var text = ""
+                  for (x in data[0]){
+                    if (x!=ran1&&x!=ran2&&x!=ran3){
+                      text+=`_`
+                    } else {
+                      text+=`${data[0][x]}`
+                    }
+                  }
+                  word.innerText = text
+                  displayDef(`https://api.dictionaryapi.dev/api/v2/entries/en/${data[0]}`)
+                  console.log(data[0])
+               submit.onclick=()=>{
+                 
+                 if (answer.value!=data[0]){
+                   health--
+                   if (health==0){
+                     word.innerText=data[0]
+                   }
+                   updateScore()
+                   word.style.color="red"
+                   word.style.scale=1.5
+                   setTimeout(function(){
+                     word.style.color="white"
+                     word.style.scale=1
+                   },500)
+                 } else {
+                   word.style.color="lime"
+                   word.style.scale=1.5
+                   score++
+                   updateScore()
+                   setTimeout(function(){
+                     word.style.color="white"
+                     word.style.scale=1
+                     displayWord(genWord)
+                   },500)
+                   
+                   
+                 } 
+                 
+                 answer.value=""
+               }
+                return data[0];
+            }).catch((err) => {
+                console.log(err);
+            }) 
+        });
+      }
+      
+      async function getDefinition(word) {
+  let response = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`, {
+    headers: {
+      "accept": "application/json"
+    }
+  });
+  document.getElementById('def').innerHTML = response.data[0].meanings[0].definitions[0].definition;
+}
+      
+   function displayDef(url) {
+    const def = document.getElementById("def")
+          return fetch(url)
+              .then((response) => { 
+                return response.json().then((data) => {
+                 if ("message" in data){
+                   def.innerText="couldn't find definition please reload or answer without definition/s"
+                 } else 
+                
+                return data[0];
+            }).catch((err) => {
+                console.log(err);
+            }) 
+        });
+      }
+      
+  function reset(){
+    displayWord(genWord)
+  }
+</script>
+
+</html>

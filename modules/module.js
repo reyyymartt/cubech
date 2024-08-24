@@ -1,4 +1,5 @@
 
+var words=null
 
 
 const config = {
@@ -21,6 +22,7 @@ class Student{
   }
 }
 
+
 const Earl = new Student("Earl Matthew", 18)
 
-export default config
+export default {Earl}

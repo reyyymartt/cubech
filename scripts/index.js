@@ -19,7 +19,6 @@ var rand = function(max) {
 
 window.onload = function (){
   const title = document.getElementById("titc")
-  console.log(title)
   setInterval(function() {
     
     title.innerHTML = ""

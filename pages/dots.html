@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>test</title>
+  <style type="text/css" media="all">
+  body{
+    background-color: #212121;
+    transition: all .5s;
+  }
+    #cloud{
+      background-color: gray;
+      height:50px;
+    }
+    .drop{
+      transition: all .5s;
+      width: 10px;
+      height:10px;
+      position: absolute;
+      background-color: red;
+    }
+  </style>
+  <script type="text/javascript">
+    
+    var rand = function(max) {
+  return Math.floor(Math.random() * max);
+};
+    var count = 0
+    var max = Infinity
+    var maxScale = 150
+    
+    var player = null
+    
+    const shapes = [100, 100]
+    
+    window.onload=function(){
+      const div = document.createElement("div")
+      div.style.width = "10px"
+      div.style.height = "10px"
+      div.style.backgroundColor="yellow"
+      div.style.position = "fixed"
+      
+      document.body.appendChild(div)
+      div.style.top = `${window.innerHeight/2}px`
+      div.style.left = `${window.innerWidth/2}px`
+    }
+    
+    
+    
+    window.addEventListener("click",function(event){
+      var interId=null
+      if (count<=max){
+        count++
+      const elem = document.createElement("div")
+      elem.id = `circle${count}`
+      elem.className='drop'
+      elem.style.scale=1
+      elem.style.position="fixed"
+      elem.style.backgroundColor="yellow"
+      document.body.appendChild(elem)
+      elem.style.left = `${event.clientX}px`
+      elem.style.top = `${event.clientY}px`
+      elem.style.clipPath = "circle(100%)"
+      elem.style.backgroundColor=`rgb(${rand(200)},${rand(200)},${rand(200)},${rand(200)})`
+      elem.style.rotate = `${rand(360)}deg`
+      elem.style.borderRadius = `${shapes[rand(2)]}%`
+      var scel=1
+      
+      
+      var sca= function(){
+        if (scel<=rand(maxScale)){
+          scel++
+          elem.style.scale=scel
+        } else {
+          clearInterval(interId)
+        }
+      
+      }
+      
+      
+      
+      setTimeout(function (){
+        elem.style.scale=1
+        elem.style.opacity=0
+        setTimeout(function(){
+          //document.body.style.backgroundColor=elem.style.backgroundColor
+          elem.remove()
+        },500)
+      },1000)
+      interId=setInterval(sca,1)
+      } else {
+        document.body.style.backgroundColor = "red"
+        
+        setTimeout(function(){
+          document.body.style.backgroundColor="#212121"
+        },300)
+      }
+    })
+    
+    
+    
+    
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>

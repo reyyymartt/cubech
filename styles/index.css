@@ -10,7 +10,7 @@ body {
     overflow: hidden;
     margin: 0px;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 0px;
 }
 
 .topbar .logo {
@@ -72,7 +72,7 @@ body {
   background-size: cover;
   position: relative;
   margin: 0px;
-  padding: 10px;
+  padding: 0px;
   height: 450px;
 }
 body > h1,h2,h3,h4,h5,p{
