@@ -6,12 +6,14 @@ body {
 }
 
 .topbar {
-    background: rgba(21,21,21,0);
+    background: brown;
     overflow: hidden;
     margin: 0px;
-    padding: 5px;
+    padding: 0px;
+    width: 100%;
     border-radius: 0px;
-    position: sticky;
+    position: fixed;
+    z-index: 10;
 }
 
 .topbar .logo {
@@ -29,6 +31,7 @@ body {
 .topbar nav {
     float: right;
     overflow: hidden;
+    justify-self: right;
     margin: 10px;
 }
 @media only screen and (max-width: 600px) {
@@ -57,7 +60,7 @@ body {
 }
 .topbar nav a::before{
   content: "> ";
-  color: magenta;
+  color: brown;
   font-weight: bold;
 }
 /* Clearfix for floating elements */
@@ -75,6 +78,8 @@ body {
   margin: 0px;
   padding: 0px;
   height: 450px;
+  padding-top: 100px;
+  object-fit: cover;
 }
 body > h1,h2,h3,h4,h5,p{
   font-family: 'Arial', Sans-Serif;
@@ -173,7 +178,7 @@ body > h1,h2,h3,h4,h5,p{
   align-self: center;
   margin: 5px;
   border-radius: 100px;
-  border: 5px solid #212121;
+  border: 5px solid brown;
   object-fit: cover;
 }
 #devs .card-inner>h3{
