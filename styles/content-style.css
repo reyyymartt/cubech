@@ -1,13 +1,13 @@
-
-
 .pagetype-1{
   margin: 10px;
   border: 1px solid black;
   border-radius: 5px;
   background-color: #151515;
-  justify-content: center;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  max-height: 100%;
+  max-width: 100%;
 }
 .pagetype-1 h1{
   padding: 10px;
@@ -17,16 +17,14 @@
   border-top-left-radius: 5px;
   color: white;
   font-size: 25px;
-  font-style: "Arial";
 }
 .pagetype-1 p{
-  margin: 0px;
+  margin: 5px;
   background-color: #151515;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   color: white;
   padding: 10px;
-  width: inherit;
   line-height: 1.5;
 }
 .pagetype-1 hr{
@@ -38,7 +36,7 @@
   color: cyan;
   font-family: monospace;
   background-color: #252525;
-  word-break: break-all;
+  word-break: break-word;
   padding: 3px;
   margin: 3px;
   border-radius: 5px;
@@ -58,4 +56,5 @@
   border: 0px solid black;
   background: linear-gradient(brown,#212121);
 }
+
 

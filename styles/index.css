@@ -11,7 +11,6 @@ body {
     margin: 0px;
     padding: 0px;
     border-radius: 0px;
-    z-index: 10;
 }
 
 .topbar .logo {
@@ -29,7 +28,6 @@ body {
 .topbar nav {
     float: right;
     overflow: hidden;
-    justify-self: right;
     margin: 10px;
 }
 @media only screen and (max-width: 600px) {
@@ -75,7 +73,7 @@ body {
   position: relative;
   margin: 0px;
   padding: 0px;
-  height: 450px;
+  height: 400px;
 }
 body > h1,h2,h3,h4,h5,p{
   font-family: 'Arial', Sans-Serif;
@@ -203,4 +201,7 @@ body > h1,h2,h3,h4,h5,p{
   to {
     opacity: 0;
   }
+}
+#pagesec{
+  background-color: red;
 }
