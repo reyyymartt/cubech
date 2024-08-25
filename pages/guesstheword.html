@@ -213,7 +213,12 @@ function updateScore(){
       }
       
   function reset(){
+    const button = document.getElementById("reload")
     displayWord(genWord)
+    button.style.visibility="hidden"
+    setTimeout(function(){
+      button.style.visibility="visible"
+    },10000)
   }
 </script>
 <script type="module" charset="utf-8">
