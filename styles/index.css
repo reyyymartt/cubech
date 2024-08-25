@@ -10,9 +10,7 @@ body {
     overflow: hidden;
     margin: 0px;
     padding: 0px;
-    width: 100%;
     border-radius: 0px;
-    position: fixed;
     z-index: 10;
 }
 
@@ -78,8 +76,6 @@ body {
   margin: 0px;
   padding: 0px;
   height: 450px;
-  padding-top: 100px;
-  object-fit: cover;
 }
 body > h1,h2,h3,h4,h5,p{
   font-family: 'Arial', Sans-Serif;
@@ -206,10 +202,5 @@ body > h1,h2,h3,h4,h5,p{
 @keyframes fade{
   to {
     opacity: 0;
-  }
-}
-@media only screen and (max-width: 600px) {
-  #devs{
-    overflow: scroll;
   }
 }
