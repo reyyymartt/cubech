@@ -26,7 +26,7 @@
     flex-direction: column;
   }
   #word{
-    color: white;
+    color:white;
     font-family: monospace;
     text-align: center;
     letter-spacing: 3px;
@@ -39,11 +39,12 @@
     padding: 10px;
   }
   #scoreboard{
-    color: white;
+    color: #212121;
     background-color: gray;
     margin: 0px;
     padding: 5px;
     font-family: monospace;
+    font-weight: bold;
   }
   #answer{
     margin: auto;
@@ -109,7 +110,6 @@ function updateScore(){
     score=0
     health=5
     updateScore()
-    
     displayWord(genWord)
   }
   
@@ -146,12 +146,12 @@ function updateScore(){
                    if (health==0){
                      word.innerText=data[0]
                    }
-                   updateScore()
                    word.style.color="red"
                    word.style.scale=1.5
                    setTimeout(function(){
                      word.style.color="white"
                      word.style.scale=1
+                     updateScore()
                    },500)
                  } else {
                    word.innerText=data[0]
