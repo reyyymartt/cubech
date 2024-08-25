@@ -101,6 +101,7 @@ body > h1,h2,h3,h4,h5,p{
   transition: all 0.2s;
   position: relative;
   cursor: pointer;
+  z-index: 1;
 }
 
 .card-inner {
@@ -108,10 +109,10 @@ body > h1,h2,h3,h4,h5,p{
   height: inherit;
   display: flex;
   flex-direction: column;
-  background: rgba(255,255,255,.05);
+  background: #151515;
   box-shadow: 0 0 10px rgba(0,0,0,0.25);
-  backdrop-filter: blur(10px);
   border-radius: 8px;
+  z-index: 2;
 }
 
 .card:hover {
@@ -129,6 +130,7 @@ body > h1,h2,h3,h4,h5,p{
   border-radius: 50%;
   position: absolute;
   animation: move-up6 2s ease-in infinite alternate-reverse;
+  z-index: -1;
 }
 
 .circle:nth-child(1) {
