@@ -39,8 +39,8 @@
     padding: 10px;
   }
   #scoreboard{
-    color: #212121;
-    background-color: gray;
+    color: white;
+    background-color: #04AA6D;
     margin: 0px;
     padding: 5px;
     font-family: monospace;
@@ -52,7 +52,7 @@
     outline: 0;
     border: 0px;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica: ;, sans-serif;
     border-bottom: 2px solid white;
     align-self: center;
     text-align: center;
@@ -82,7 +82,8 @@ var health = 5
 const hiddenLetter = "_"
 const ran = "https://random-word-api.herokuapp.com/word"
 const genWord = "https://random-word-api.vercel.app/api?words=1"
-
+const genTrivia = "https://opentdb.com/api.php?amount=1"
+const triviaCat = "https://opentdb.com/api_category.php"
 
 var rand = function(max) {
   return Math.floor(Math.random() * max);
@@ -212,6 +213,9 @@ function updateScore(){
   function reset(){
     displayWord(genWord)
   }
+</script>
+<script type="module" charset="utf-8">
+  
 </script>
 
 </html>

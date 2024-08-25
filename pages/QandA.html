@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Q&A</title>
+  <script src="/scripts/qanda.js"></script>
+</head>
+<style type="text/css" media="all">
+  body{
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #212121;
+  }
+  #scoreboard{
+    background-color: #04AA6D;
+    color: white;
+    font-weight: bold;
+    margin: 0px;
+    padding: 5px;
+  }
+  #optionSection{
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    padding: 5px;
+    background-color: #04AA6D;
+    color: white;
+  }
+  #optionSection>label{
+    padding: 5px;
+    margin: 0px;
+  }
+  #optionSection>select{
+    background-color: transparent;
+    color: yellow;
+    font-weight: bold;
+    border: 0px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    width:150px;
+  }
+  #optionSection>select:focus{
+    outline: none;
+  }
+  #mainsection{
+    display: flex;
+    flex-direction: column;
+  }
+  #word{
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+    height:200px;
+    border-radius: 10px;
+    background-color: lightblue;
+    margin-bottom: 30px;
+    transition: all .5s ease;
+  }
+  #answer{
+    margin: auto;
+    padding: 10px;
+    border: none;
+    color: white;
+    background-color: transparent;
+    border-bottom: 1px solid white;
+  }
+  #answer:focus{
+    outline: none;
+  }
+  #buttonSec{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+  }
+  #buttonSec>input[type=button]{
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid black;
+    background-color: #04AA6D;
+    transition: all .5s ease;
+  }
+  #buttonSec>input[type=button]:active{
+    transform: scale(0.5);
+  }
+</style>
+<body>
+<p id="scoreboard">SCORE: 0<br>HIGHEST SCORE: 0<br>HEALTH: 0</p>
+<div id="optionSection">
+<label for="category">Category: </label>
+<select id="category">
+  
+</select>
+<label for="difficulty">Difficulty: </label>
+<select id="difficulty">
+  <option value="easy">Easy</option>
+  <option value="medium">Medium</option>
+  <option value="hard">Hard</option>
+</select>
+<label for="type">Type: </label>
+<select id="type">
+  <option value="multiple">Multiple</option>
+  <option value="boolean">True of False</option>
+</select>
+</div>
+<div id="mainsection">
+  <div id="word">
+    Question here
+  </div>
+  <input type="text" id="answer" placeholder="Answer here"/>
+  
+  <div id="buttonSec">
+    <input type="button" id="submit" value="Submit" />
+    <input type="button" id="reload" value="Change Question" onclick="reset()">
+  </div>
+</div>
+</body>
+
+</html>
