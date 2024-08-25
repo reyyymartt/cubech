@@ -4,11 +4,12 @@
   margin: 10px;
   border: 1px solid black;
   border-radius: 5px;
+  background-color: #151515;
 }
 .pagetype-1 h1{
   padding: 10px;
   margin: 0px;
-  background-color: #333;
+  background-color: #433;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   color: white;
@@ -17,7 +18,7 @@
 }
 .pagetype-1 p{
   margin: 0px;
-  background-color: #212122;
+  background-color: #151515;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   color: white;
@@ -25,13 +26,14 @@
 }
 .pagetype-1 hr{
   margin: 10px;
+  background-color: transparent;
 }
 .pagetype-1 a{
   text-decoration: underline;
   color: cyan;
 }
 .page-title{
-  color: lightblue;
+  color: white;
   padding: 5px;
   margin: 0px;
   font-size: 30px;
@@ -39,6 +41,6 @@
   text-align: center;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   border: 0px solid black;
-  background-color: #333;
+  background-color: #433;
 }
 
