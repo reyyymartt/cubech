@@ -5,6 +5,9 @@
   border: 1px solid black;
   border-radius: 5px;
   background-color: #151515;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 .pagetype-1 h1{
   padding: 10px;
@@ -22,15 +25,22 @@
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   color: white;
-  padding: 15px;
+  padding: 10px;
+  width: inherit;
+  line-height: 1.5;
 }
 .pagetype-1 hr{
   margin: 10px;
   background-color: transparent;
 }
 .pagetype-1 a{
-  text-decoration: underline;
+  text-decoration: none;
   color: cyan;
+  font-family: monospace;
+  background-color: #212121;
+  word-break: break-all;
+  padding: 3px;
+  border-radius: 5px;
 }
 .page-title{
   color: white;
