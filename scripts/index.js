@@ -35,3 +35,12 @@ window.onload = function (){
     typeWriter()
   }, 5000);
 }
+
+const request = new XMLHttpRequest();
+	request.open("GET", "https://json.extendsclass.com/bin/caa26805f794", true);
+	request.onreadystatechange = () => {
+		alert(request.responseText);
+	};
+	request.send();
+	
+console.log("request")

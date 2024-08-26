@@ -220,4 +220,3 @@ function createAnswers(correctAnswer, wrongAnswers) {
    
   
  }
-    
