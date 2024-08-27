@@ -10,7 +10,7 @@ const devs=[
   }
 ]
 
-const texts = ["Funcy","Learn and have fun!","Expand your knowledge","Explore and Learn!"]
+const texts = ["Funcy","Learn and have fun!","Expand your knowledge",]
 
 var rand = function(max) {
   return Math.floor(Math.random() * max);
@@ -35,3 +35,16 @@ window.onload = function (){
     typeWriter()
   }, 5000);
 }
+
+function rtw (string){
+  var text =""
+  console.log(string.length-1)
+  for (x in string){
+    text=string[x]+text
+  }
+  return text
+}
+
+
+const text = rtw("Reymart")
+console.log(text)
