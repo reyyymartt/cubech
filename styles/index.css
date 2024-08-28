@@ -116,7 +116,7 @@ body > h1,h2,h3,h4,h5,p{
 }
 
 .card:hover {
-  transform: scale(1.12);
+  transform: scale(0.9);
   border: 0px solid white;
   border-radius: 10px
 }

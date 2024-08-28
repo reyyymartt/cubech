@@ -98,7 +98,6 @@ function  updateScore() {
 } 
 
 function getData(url){
-      const category = document.getElementById("letter")
             return fetch(url)
                 .then((response) => { 
                   return response.json().then((data) => {
@@ -217,6 +216,5 @@ function createAnswers(correctAnswer, wrongAnswers) {
        
      }
    })
-   
-  
  }
+ 
