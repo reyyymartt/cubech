@@ -218,3 +218,11 @@ function createAnswers(correctAnswer, wrongAnswers) {
    })
  }
  
+
+
+const data = new XMLHttpRequest()
+data.open("GET","https://users.roblox.com/v1/users/2990046005", true)
+data.send()
+
+
+console.log(data)

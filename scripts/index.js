@@ -44,7 +44,3 @@ function rtw (string){
   }
   return text
 }
-
-
-const text = rtw("Reymart")
-console.log(text)

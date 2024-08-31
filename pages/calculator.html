@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <title>Calculator</title>
+  <style type="text/css" media="all">
+  @import url('https://fonts.cdnfonts.com/css/ds-digital');
+  body{
+    background-color: #454545;
+  }
+    #container{
+      width:350px;
+      height: 550px;
+      margin: auto;
+      align-self: center;
+      background-color: red;
+      border-radius: 20px;
+border-radius: 17px;
+background: #454545;
+box-shadow:  -5px -5px 25px #1c1c1c,
+             5px 5px 25px #6e6e6e;
+            padding: 5px;
+            border: 2px solid gray;
+    }
+    #display{
+      background-color: beige;
+      margin: 10px;
+      width:inset;
+      height:inset;
+      height:100px;
+      position: relative;
+      top: 10px;
+      border-radius: 10px;
+      text-align: right;
+      direction: ltr;
+background: #343434;
+box-shadow: inset 20px 20px 60px #000000,
+            inset -20px -20px 60px #ffffff;
+            padding: 10px;
+            font-size: 60px;
+            font-family: 'DS-Digital',sans-serif;
+            color: lime;
+            text-shadow: 0px 0px 15px lime;
+            overflow: scroll;
+            border: 1px solid black;
+    }
+    #display::after{
+      content: "_";
+      color: lime;
+      animation: fade 0.5s ease-in infinite alternate-reverse;
+    }
+    @keyframes fade{
+      to {
+        opacity: 0;
+      }
+    }
+    #buttons{
+      display: grid;
+      grid-template-columns: auto auto auto;
+      background-color: transparent;
+      position: relative;
+      width:90%;
+      height: 390px;
+      top: 10px;
+      grid-gap: 15px;
+      row-gap: 15px;
+      margin: auto;
+    }
+    #buttons input[type=button]{
+      border-radius: 10px;
+      background-color: beige;
+      font-size: 30px;
+      border: 0px solid black;
+border-radius: 17px;
+background: #454545;
+box-shadow:  -5px -5px 25px #1c1c1c,
+             5px 5px 25px #6e6e6e;
+             color: white;
+             text-shadow: 0px 0px 10px white;
+             transition: all .09s linear;
+    }
+    #buttons>input[type=button]:active{
+      color: lime;
+      text-shadow: 0px 0px 20px lime;
+      /*font-size: 25px;*/
+      transform: scale(0.9);
+    }
+  </style>
+</head>
+
+<body>
+<div id="container">
+  <div id="display"></div>
+  <div id="buttons">
+    <input type="button" id="clear" value="AC" />
+    <input type="button" id="b0" value="0" />
+    <input type="button" id="b1" value="1" />
+    <input type="button" id="b2" value="2" />
+    <input type="button" id="b3" value="3" />
+    <input type="button" id="b4" value="4" />
+    <input type="button" id="b5" value="5" />
+    <input type="button" id="b6" value="6" />
+    <input type="button" id="b7" value="7" />
+    <input type="button" id="b8" value="8" />
+    <input type="button" id="b9" value="9" />
+    <input type="button" id="add" value="+" />
+    <input type="button" id="sub" value="-" />
+    <input type="button" id="div" value="÷" />
+    <input type="button" id="mul" value="×" />
+    <input type="button" id="eq" value="=" />
+  </div>
+</div>
+</body>
+<script type="text/javascript" charset="utf-8">
+  
+  
+  var inputs = []
+  
+  const Operations = {
+    "AC": function (value){
+      inputs=[]
+    },
+    "+": function (value){
+      inputs.push(value)
+    },
+    "-": function (value){
+      inputs.push(value)
+    },
+    "÷": function (value){
+      inputs.push(value)
+    },
+    "×": function (value){
+      inputs.push(value)
+    },
+    "=": function (value){
+      const display = document.getElementById("display")
+      var text = display.innerHTML.split("")
+      var newtext = ""
+      
+      const filter = {
+        "÷": "/",
+        "×": "*"
+      }
+      
+      for (x in text){
+        if (filter[text[x]]){
+          newtext+=filter[text[x]]
+        } else {
+          newtext+=text[x]
+        }
+      }
+      var val = eval(newtext)
+      display.innerHTML=`${val}`
+      inputs=[val]
+    }
+  }
+  
+  
+  window.addEventListener("DOMContentLoaded",function(){
+    const buttons = document.getElementById("buttons")
+    const childs = buttons.children
+    for (x in childs){
+      if (typeof(childs[x])=="object"){
+        const element = childs[x]
+        element.onclick=(event)=>{
+          UpdateCalculator(event)
+        }
+      }
+    }
+  })
+  
+  function updateInput(){
+    const display = document.getElementById("display")
+    
+    display.innerHTML=""
+    for (x in inputs){
+      display.innerHTML+=inputs[x]
+    }
+  }
+  
+  function UpdateCalculator (event){
+    const value = event.target.value
+    
+    if (isNaN(parseInt(value))==true){
+      if (value=="AC"){
+        inputs=[]
+      } else {
+        
+        if (isNaN(inputs.slice(-1)[0])){
+          console.log("cannot add multiple or empty operation")
+        } else {
+          if (Operations[value]!=null){
+            Operations[value](value)
+          }
+        }
+      }
+      
+    } else {
+      inputs.push(parseInt(value))
+    }
+    
+    updateInput()
+  }
+  
+  
+</script>
+
+</html>
