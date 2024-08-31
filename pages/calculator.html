@@ -30,8 +30,8 @@ box-shadow:  -5px -5px 25px #1c1c1c,
     #display{
       background-color: beige;
       margin: 10px;
-      width:inset;
-      height:inset;
+      /*width:inherit;
+      height:inherit;*/
       height:100px;
       position: relative;
       top: 10px;
@@ -48,8 +48,9 @@ box-shadow: inset 20px 20px 60px #000000,
             text-shadow: 0px 0px 15px lime;
             overflow: scroll;
             border: 1px solid black;
+            opacity: 0.7;
     }
-    #display::after{
+    #display::before{
       content: "_";
       color: lime;
       animation: fade 0.5s ease-in infinite alternate-reverse;
@@ -90,6 +91,12 @@ box-shadow:  -5px -5px 25px #1c1c1c,
       /*font-size: 25px;*/
       transform: scale(0.9);
     }
+    #clear{
+      border-radius: 50px;
+      background: #ffff00;
+      box-shadow:  20px 20px 60px #d9d900,
+             -20px -20px 60px #ffff00;
+    }
   </style>
 </head>
 
@@ -97,7 +104,7 @@ box-shadow:  -5px -5px 25px #1c1c1c,
 <div id="container">
   <div id="display"></div>
   <div id="buttons">
-    <input type="button" id="clear" value="AC" />
+    <input style="background-color: orangered;border: 1px solid black;" type="button" id="clear" value="AC" />
     <input type="button" id="b0" value="0" />
     <input type="button" id="b1" value="1" />
     <input type="button" id="b2" value="2" />
@@ -112,7 +119,8 @@ box-shadow:  -5px -5px 25px #1c1c1c,
     <input type="button" id="sub" value="-" />
     <input type="button" id="div" value="÷" />
     <input type="button" id="mul" value="×" />
-    <input type="button" id="eq" value="=" />
+    <input style="background-color: gray;" type="button" id="eq" value="=" />
+    <input style="background-color: white;color:black;" type="button" id="del" value="del" />
   </div>
 </div>
 </body>
@@ -137,6 +145,9 @@ box-shadow:  -5px -5px 25px #1c1c1c,
     "×": function (value){
       inputs.push(value)
     },
+    "del": function (value){
+      inputs.splice(inputs.length-1,1)
+    },
     "=": function (value){
       const display = document.getElementById("display")
       var text = display.innerHTML.split("")
@@ -156,7 +167,7 @@ box-shadow:  -5px -5px 25px #1c1c1c,
       }
       var val = eval(newtext)
       display.innerHTML=`${val}`
-      inputs=[val]
+      inputs=String(val).split("")
     }
   }
   
