@@ -10,6 +10,10 @@
   <title>Calculator</title>
   <style type="text/css" media="all">
   @import url('https://fonts.cdnfonts.com/css/ds-digital');
+  @font-face{
+    font-family: "Digital";
+    src: url("/styles/dd.otf");
+  }
   body{
     background-color: #454545;
   }
@@ -37,20 +41,20 @@ box-shadow:  -5px -5px 25px #1c1c1c,
       top: 10px;
       border-radius: 10px;
       text-align: right;
-      direction: ltr;
 background: #343434;
 box-shadow: inset 20px 20px 60px #000000,
             inset -20px -20px 60px #ffffff;
-            padding: 10px;
-            font-size: 60px;
-            font-family: 'DS-Digital',sans-serif;
+            padding: 5px;
+            font-size: 50px;
+            font-family: 'Digital',sans-serif;
             color: lime;
             text-shadow: 0px 0px 15px lime;
             overflow: scroll;
+            word-break: break-all;
             border: 1px solid black;
-            opacity: 0.7;
+            mix-blend-mode: overlay;
     }
-    #display::before{
+    /*#display::before{
       content: "_";
       color: lime;
       animation: fade 0.5s ease-in infinite alternate-reverse;
@@ -59,7 +63,7 @@ box-shadow: inset 20px 20px 60px #000000,
       to {
         opacity: 0;
       }
-    }
+    }*/
     #buttons{
       display: grid;
       grid-template-columns: auto auto auto;
@@ -120,7 +124,7 @@ box-shadow:  -5px -5px 25px #1c1c1c,
     <input type="button" id="div" value="÷" />
     <input type="button" id="mul" value="×" />
     <input style="background-color: gray;" type="button" id="eq" value="=" />
-    <input style="background-color: white;color:black;" type="button" id="del" value="del" />
+    <input style="background-color: crimson;" type="button" id="del" value="del" />
   </div>
 </div>
 </body>
@@ -165,9 +169,11 @@ box-shadow:  -5px -5px 25px #1c1c1c,
           newtext+=text[x]
         }
       }
-      var val = eval(newtext)
+      
+      var val = eval(new String(newtext).toString())
       display.innerHTML=`${val}`
       inputs=String(val).split("")
+      console.log(inputs)
     }
   }
   
@@ -202,7 +208,7 @@ box-shadow:  -5px -5px 25px #1c1c1c,
         inputs=[]
       } else {
         
-        if (isNaN(inputs.slice(-1)[0])){
+        if (isNaN(inputs.slice(-1)[0])&&value!="del"){
           console.log("cannot add multiple or empty operation")
         } else {
           if (Operations[value]!=null){
