@@ -1,6 +1,6 @@
 
 
-
+var visitor = localStorage.getItem("visitor")
 
 const devs=[
   {
@@ -10,7 +10,7 @@ const devs=[
   }
 ]
 
-const texts = ["Funcy","Learn and have fun!","Expand your knowledge",]
+const texts = ["Funcy","Learn and have fun!","Expand your knowledge",`Hello, ${visitor}!`]
 
 var rand = function(max) {
   return Math.floor(Math.random() * max);
@@ -19,6 +19,22 @@ var rand = function(max) {
 
 window.onload = function (){
   const title = document.getElementById("titc")
+  
+  if (localStorage.getItem("visitor")==null){
+    const newV = prompt("Hello visitor! would you like to tell us your name?\nno worries! you can leave this black:)")
+    
+    if (newV==""){
+      localStorage.setItem("visitor","visitor")
+    } else {
+      localStorage.setItem("visitor",newV)
+    }
+    const text=`New visitor: [ ${newV} ] visited funcy`
+    sendMessage(text)
+  } else {
+    const text = `[ ${visitor} ] visited the funcy again`
+    sendMessage(text)
+  }
+  
   setInterval(function() {
     
     title.innerHTML = ""
@@ -44,3 +60,18 @@ function rtw (string){
   }
   return text
 }
+
+function sendMessage(msg) {
+      const request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/1279693533468557363/K-e0WqlhIP5DuSovo5Or1CZApehyRG-eRTH5QQopM-WhIvKPyjjzp4DOlvudC9VS0crj");
+
+      request.setRequestHeader('Content-type', 'application/json');
+
+      const params = {
+        username: "Funcy",
+        avatar_url: "",
+        content: msg
+      }
+
+      request.send(JSON.stringify(params));
+    }
