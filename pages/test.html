@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Background music</title>
+</head>
+
+<body>
+<audio src="https://www.bensound.com/bensound-music/bensound-moose.mp3"></audio>
+<button type="submit" id="button">Value</button>
+</body>
+<script type="module">
+  
+</script>
+<script>
+const button = document.querySelector("#button");
+const icon = document.querySelector("#button > i");
+const audio = document.querySelector("audio");
+
+window.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.volume = 0.2;
+    audio.play();
+    icon.classList.remove('fa-volume-up');
+    icon.classList.add('fa-volume-mute');
+  }
+  button.classList.add("fade");
+});
+</script>
+</html>

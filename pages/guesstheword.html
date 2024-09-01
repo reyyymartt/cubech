@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  <audio id="effect" src="/assets/correct.mp3"></audio>
 <p id="scoreboard">SCORE: 0<br>HIGHEST SCORE: 0<br>HEALTH: 5</p>
 <h1 id="word">random</h1>
 <p id="def">Definition</p>
@@ -123,6 +124,7 @@ function updateScore(){
     const submit = document.getElementById("submit")
     const answer = document.getElementById("answer")
     const sb=document.getElementById("scoreboard")
+    const sound = document.getElementById("effect")
           return fetch(url)
               .then((response) => { 
                 return response.json().then((data) => {
@@ -157,6 +159,7 @@ function updateScore(){
                      updateScore()
                    },500)
                  } else {
+                   sound.play()
                    word.innerText=data[0]
                    word.style.color="lime"
                    word.style.scale=1.5
