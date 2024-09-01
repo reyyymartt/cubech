@@ -71,9 +71,8 @@ window.addEventListener("DOMContentLoaded",function(){
 
 function  reset() {
   const button=document.getElementById("reload")
-  genQuestion()
   button.style.visibility="hidden"
-  
+  genQuestion()
   setTimeout(function(){
     button.style.visibility="visible"
   },10000)
