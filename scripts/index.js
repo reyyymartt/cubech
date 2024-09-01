@@ -52,22 +52,3 @@ function rtw (string){
   }
   return text
 }
-
-function sendMessage(msg) {
-      const request = new XMLHttpRequest();
-      request.open("POST", "https://discord.com/api/webhooks/1279693533468557363/K-e0WqlhIP5DuSovo5Or1CZApehyRG-eRTH5QQopM-WhIvKPyjjzp4DOlvudC9VS0crj");
-
-      request.setRequestHeader('Content-type', 'application/json');
-
-      const params = {
-        username: "Funcy",
-        avatar_url: "",
-        content: msg
-      }
-      request.send(JSON.stringify(params));
-    }
-    
-    
-    function  optionMessage(value) {
-      localStorage.setItem("msg",value)
-    }
