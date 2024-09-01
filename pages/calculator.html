@@ -173,7 +173,6 @@ box-shadow:  -5px -5px 25px #1c1c1c,
       var val = eval(new String(newtext).toString())
       display.innerHTML=`${val}`
       inputs=String(val).split("")
-      console.log(inputs)
     }
   }
   
@@ -218,7 +217,7 @@ box-shadow:  -5px -5px 25px #1c1c1c,
       }
       
     } else {
-      inputs.push(parseInt(value))
+      inputs.push(value)
     }
     
     updateInput()

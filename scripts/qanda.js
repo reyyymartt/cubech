@@ -115,21 +115,15 @@ function getData(url){
     return array;
 }
 
-// Function to create a list of answers with the correct answer placed randomly
 function createAnswers(correctAnswer, wrongAnswers) {
-    // Combine the correct answer with the wrong answers
     let answers = [correctAnswer, ...wrongAnswers];
 
-    // Shuffle the answers to randomize their order
     answers = shuffleArray(answers);
 
     return answers;
 }
-
-// Example usage
   
  function  genQuestion() {
-   // Tab to edit
    const url = `https://opentdb.com/api.php?amount=1&category=${question_category}&difficulty=${question_difficulty}&type=${question_type}`
    
    const generate = getData(url)
@@ -217,12 +211,3 @@ function createAnswers(correctAnswer, wrongAnswers) {
      }
    })
  }
- 
-
-
-const data = new XMLHttpRequest()
-data.open("GET","https://users.roblox.com/v1/users/2990046005", true)
-data.send()
-
-
-console.log(data)
