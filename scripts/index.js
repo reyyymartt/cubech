@@ -17,25 +17,15 @@ var rand = function(max) {
 };
 
 
+window.addEventListener("DOMContentLoaded",function () {
+  
+  
+})
+
 window.onload = function (){
   const title = document.getElementById("titc")
+  const text = `Visitor: \n${window.clientInformation.appVersion.split("/")[0]}`
   
-  if (localStorage.getItem("visitor")==null&&visitor==null){
-    const newV = prompt("Hello visitor! would you like to tell us your name?\nno worries! you can leave this black:)")
-    
-    if (newV==""){
-      localStorage.setItem("visitor","unknown")
-    } else {
-      localStorage.setItem("visitor",newV)
-      visitor=newV
-    }
-    const text=`New visitor: [ ${newV} ] visited funcy`
-    sendMessage(text)
-  } else {
-    visitor=localStorage.getItem("visitor")
-    const text = `[ ${visitor} ] visited the funcy again`
-    sendMessage(text)
-  }
   
   setInterval(function() {
     
@@ -74,6 +64,10 @@ function sendMessage(msg) {
         avatar_url: "",
         content: msg
       }
-
       request.send(JSON.stringify(params));
+    }
+    
+    
+    function  optionMessage(value) {
+      localStorage.setItem("msg",value)
     }
