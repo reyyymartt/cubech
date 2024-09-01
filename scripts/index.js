@@ -1,6 +1,6 @@
 
 
-var visitor = "unknown"
+var visitor = localStorage.getItem("visitor")
 
 const devs=[
   {
