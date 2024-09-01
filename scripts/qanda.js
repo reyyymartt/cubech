@@ -130,6 +130,7 @@ function createAnswers(correctAnswer, wrongAnswers) {
    const submit = document.getElementById("submit")
    const input = document.getElementById("answer")
    const cqd = question_difficulty
+   const sound = document.getElementById("effect")
    
    generate.then((data)=>{
      const code = data.response_code
@@ -160,6 +161,7 @@ function createAnswers(correctAnswer, wrongAnswers) {
             const good = taunts[rand(taunts.length-1)]
             score+=level_score[cqd]
             word.innerHTML=`Correct! <br>${good}<hr>Answer: ${choices[final]}`
+            sound.play()
             submit.onclick=null
             setTimeout(function (){
               word.style.backgroundColor="lightblue"
@@ -186,10 +188,12 @@ function createAnswers(correctAnswer, wrongAnswers) {
           word.style.backgroundColor="#04AA6D"
           word.style.color="white"
           const userinput = input.value.toLowerCase()
+          
           if (userinput==answer){
             const taunt = taunts[rand(taunts.length-1)]
             score+=level_score[cqd]
             word.innerHTML=`Correct! <br>${taunt}<hr>Answer: ${answer}`
+            sound.play()
             submit.onclick=null
             setTimeout(function (){
               word.style.backgroundColor="lightblue"
