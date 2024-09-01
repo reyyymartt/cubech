@@ -1,6 +1,6 @@
 
 
-var visitor = localStorage.getItem("visitor")
+var visitor = "unknown"
 
 const devs=[
   {
@@ -24,13 +24,15 @@ window.onload = function (){
     const newV = prompt("Hello visitor! would you like to tell us your name?\nno worries! you can leave this black:)")
     
     if (newV==""){
-      localStorage.setItem("visitor","visitor")
+      localStorage.setItem("visitor","unknown")
     } else {
       localStorage.setItem("visitor",newV)
+      visitor=newV
     }
     const text=`New visitor: [ ${newV} ] visited funcy`
     sendMessage(text)
   } else {
+    visitor=localStorage.getItem("visitor")
     const text = `[ ${visitor} ] visited the funcy again`
     sendMessage(text)
   }
