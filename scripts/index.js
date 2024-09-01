@@ -20,7 +20,7 @@ var rand = function(max) {
 window.onload = function (){
   const title = document.getElementById("titc")
   
-  if (localStorage.getItem("visitor")==null){
+  if (localStorage.getItem("visitor")==null&&visitor==null){
     const newV = prompt("Hello visitor! would you like to tell us your name?\nno worries! you can leave this black:)")
     
     if (newV==""){
